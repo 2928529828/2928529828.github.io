@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D 视觉作品集 — 建模 / 材质 / 渲染</title>
+<meta name="description" content="三维视觉作品集：工业产品造型、角色与 IP、场景与材质验证。支持在浏览器里上传作品并自定义编辑。">
+<meta property="og:title" content="3D 视觉作品集">
+<meta property="og:description" content="建模 · 材质 · 渲染 — 工业产品 / 角色 IP / 场景材质">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2316171A'/%3E%3Cpath d='M9 22V10h6.5a4 4 0 010 8H9' stroke='%23F4F3F0' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-head" id="top">
+  <a class="brand" href="#top">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-text" data-site="brand">3D 视觉作品集</span>
+  </a>
+  <nav class="head-nav" aria-label="页面导航">
+    <a href="#works">作品</a>
+    <a href="#about">关于</a>
+    <a href="#contact">联系</a>
+  </nav>
+  <div class="head-actions">
+    <button class="btn btn-ghost" id="btnEdit" type="button">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13.6 3.2l3.2 3.2L7 16.2l-4 1 1-4z"/></svg>
+      <span id="btnEditLabel">编辑</span>
+    </button>
+  </div>
+</header>
+
+<section class="sub-bar">
+  <div class="chips" id="chips" role="tablist" aria-label="按分类筛选"></div>
+  <div class="sub-bar-right">
+    <span class="edit-badge" id="editBadge" hidden>编辑模式</span>
+    <span class="count" id="countLabel">15 件</span>
+  </div>
+</section>
+
+<main>
+  <section class="hero" id="works">
+    <p class="eyebrow"><span data-site="tagline">Selected Works · 建模 / 材质 / 渲染</span></p>
+    <div class="hero-main">
+      <h1 class="hero-title" data-site="brand">3D 视觉作品集</h1>
+      <div class="hero-side">
+        <p class="hero-intro" data-site="intro">这里收录了 15 件三维作品，覆盖工业产品造型、角色与 IP、场景与材质验证三类。每一件都从形体开始，到 UV、材质、灯光与最终渲染收尾。</p>
+        <dl class="hero-facts">
+          <div><dt>作品</dt><dd id="factCount">15</dd></div>
+          <div><dt>分类</dt><dd id="factCats">03</dd></div>
+          <div><dt>期间</dt><dd data-site="meta">2025 — 2026</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid" id="grid" aria-label="作品列表"></section>
+
+  <section class="drop" id="dropzone" hidden>
+    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+    <button class="drop-inner" id="btnDrop" type="button">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5l5 5M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+      <strong>添加作品</strong>
+      <span>点击选择图片，或把图片拖到这里（可多选）</span>
+    </button>
+  </section>
+
+  <div class="empty" id="empty" hidden>
+    <p id="emptyText">还没有作品。</p>
+    <button class="btn btn-solid" id="btnEmptyAdd" type="button">添加作品</button>
+  </div>
+
+  <section class="about" id="about">
+    <div class="about-grid">
+      <h2 class="sec-label">关于</h2>
+      <div class="about-body">
+        <p class="about-lead" data-site="about">先解决形体，再谈材质。硬表面按结构分件，角色先定比例与剪影；进入 UV 之后，每个通道都回到原图逐一比对，最后才是灯光和渲染。</p>
+        <div class="about-cols">
+          <div>
+            <h3>流程</h3>
+            <ol class="steps">
+              <li><b>01</b> 参考与比例，先定形体</li>
+              <li><b>02</b> 白模验证体积与转折</li>
+              <li><b>03</b> 硬表面分件 / 雕刻细节</li>
+              <li><b>04</b> UV 展开，贴图与材质</li>
+              <li><b>05</b> 灯光、渲染、通道检查</li>
+            </ol>
+          </div>
+          <div>
+            <h3>能力</h3>
+            <ul class="skills">
+              <li>硬表面建模</li>
+              <li>角色与 IP 造型</li>
+              <li>UV 与材质验证</li>
+              <li>布料 / 软体</li>
+              <li>灯光与渲染</li>
+              <li>装配与结构表达</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot" id="contact">
+  <div class="foot-grid">
+    <div>
+      <p class="eyebrow">联系</p>
+      <a class="foot-mail" id="footMail" href="mailto:hello@example.com">hello@example.com</a>
+    </div>
+    <div class="foot-meta">
+      <p><span data-site="author">你的名字</span> · <span data-site="role">三维视觉设计</span></p>
+      <p class="muted">图片版权归作者所有，未经许可请勿转载。</p>
+      <p class="muted">© <span id="year">2026</span> · <span data-site="brand">3D 视觉作品集</span></p>
+    </div>
+  </div>
+</footer>
+
+<!-- 作品灯箱 -->
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="作品详情">
+  <button class="lb-close" id="lbClose" type="button" aria-label="关闭">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="上一件">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="下一件">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <figure class="lb-media">
+    <img id="lbImg" alt="">
+  </figure>
+  <div class="lb-info">
+    <p class="lb-kicker"><span id="lbNum">01</span> / <span id="lbTotal">15</span></p>
+    <h2 id="lbTitle">作品标题</h2>
+    <p class="lb-en" id="lbEn">Title</p>
+    <p class="lb-cat" id="lbCat">分类</p>
+    <p class="lb-desc" id="lbDesc"></p>
+    <ul class="lb-tags" id="lbTags"></ul>
+  </div>
+</div>
+
+<!-- 作品编辑弹窗 -->
+<div class="modal" id="editor" hidden role="dialog" aria-modal="true" aria-label="编辑作品">
+  <form class="sheet" id="editorForm" autocomplete="off">
+    <header class="sheet-head">
+      <h2 id="editorTitle">编辑作品</h2>
+      <button class="icon-btn" type="button" data-close="editor" aria-label="关闭">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <div class="sheet-body">
+      <div class="field field-image">
+        <div class="img-slot" id="imgSlot">
+          <img id="imgPreview" alt="">
+          <span class="img-empty">点击或拖入图片</span>
+        </div>
+        <div class="img-slot-actions">
+          <button class="btn btn-sm" type="button" id="btnPickImage">更换图片</button>
+          <span class="hint">建议长边 ≥ 1400px，会自动压缩</span>
+        </div>
+        <input type="file" id="imgInput" accept="image/*" hidden>
+      </div>
+
+      <div class="field">
+        <label for="fTitle">标题</label>
+        <input type="text" id="fTitle" placeholder="例如：手持点火器">
+      </div>
+      <div class="field">
+        <label for="fEn">英文名 / 副标题</label>
+        <input type="text" id="fEn" placeholder="Handheld Torch">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="fCat">分类</label>
+          <select id="fCat"></select>
+        </div>
+        <div class="field">
+          <label for="fTags">标签（逗号分隔）</label>
+          <input type="text" id="fTags" placeholder="硬表面, 双材质, 三点布光">
+        </div>
+      </div>
+      <div class="field">
+        <label class="switch">
+          <input type="checkbox" id="fContain">
+          <span>整张显示（竖构图 / 通道图用；勾上就不裁切，配深色底）</span>
+        </label>
+      </div>
+      <div class="field">
+        <label for="fDesc">说明</label>
+        <textarea id="fDesc" rows="4" placeholder="这件作品做了什么、解决了什么问题"></textarea>
+      </div>
+    </div>
+    <footer class="sheet-foot">
+      <button class="btn btn-danger" type="button" id="btnDeleteWork">删除</button>
+      <div class="spacer"></div>
+      <button class="btn" type="button" data-close="editor">取消</button>
+      <button class="btn btn-solid" type="submit">保存</button>
+    </footer>
+  </form>
+</div>
+
+<!-- 站点设置 -->
+<div class="modal" id="settings" hidden role="dialog" aria-modal="true" aria-label="站点设置">
+  <form class="sheet" id="settingsForm" autocomplete="off">
+    <header class="sheet-head">
+      <h2>站点设置</h2>
+      <button class="icon-btn" type="button" data-close="settings" aria-label="关闭">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <div class="sheet-body">
+      <div class="field-row">
+        <div class="field"><label for="sBrand">站点名</label><input type="text" id="sBrand"></div>
+        <div class="field"><label for="sAuthor">姓名</label><input type="text" id="sAuthor"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="sRole">身份 / 头衔</label><input type="text" id="sRole"></div>
+        <div class="field"><label for="sMeta">期间</label><input type="text" id="sMeta"></div>
+      </div>
+      <div class="field"><label for="sTagline">副标题（小字）</label><input type="text" id="sTagline"></div>
+      <div class="field"><label for="sEmail">联系邮箱</label><input type="email" id="sEmail"></div>
+      <div class="field"><label for="sIntro">简介（首屏）</label><textarea id="sIntro" rows="4"></textarea></div>
+      <div class="field"><label for="sAbout">关于（这一段讲方法）</label><textarea id="sAbout" rows="5"></textarea></div>
+    </div>
+    <footer class="sheet-foot">
+      <div class="spacer"></div>
+      <button class="btn" type="button" data-close="settings">取消</button>
+      <button class="btn btn-solid" type="submit">保存</button>
+    </footer>
+  </form>
+</div>
+
+<!-- 分类管理 -->
+<div class="modal" id="cats" hidden role="dialog" aria-modal="true" aria-label="分类管理">
+  <form class="sheet" id="catsForm" autocomplete="off" onsubmit="return false">
+    <header class="sheet-head">
+      <h2>分类管理</h2>
+      <button class="icon-btn" type="button" data-close="cats" aria-label="关闭">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </header>
+    <div class="sheet-body">
+      <p class="field-note">上面的顺序就是筛选条的顺序。删除分类时，里面的作品会转到「未分类」。</p>
+      <ul class="cat-rows" id="catRows"></ul>
+      <div class="cat-add">
+        <input type="text" id="catNew" placeholder="新分类名称，例如：概念设计、动画短片">
+        <button class="btn btn-solid" type="button" id="catAddBtn">添加</button>
+      </div>
+    </div>
+    <footer class="sheet-foot">
+      <div class="spacer"></div>
+      <button class="btn btn-solid" type="button" data-close="cats">完成</button>
+    </footer>
+  </form>
+</div>
+
+<!-- 编辑工具条 -->
+<div class="editbar" id="editbar" hidden>
+  <button class="eb-btn eb-primary" type="button" id="ebAdd">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>添加作品
+  </button>
+  <span class="eb-sep"></span>
+  <button class="eb-btn" type="button" id="ebCats">分类</button>
+  <button class="eb-btn" type="button" id="ebSettings">站点设置</button>
+  <button class="eb-btn" type="button" id="ebExport">导出备份</button>
+  <button class="eb-btn" type="button" id="ebImport">导入备份</button>
+  <button class="eb-btn" type="button" id="ebPublish">导出成品页</button>
+  <button class="eb-btn" type="button" id="ebPrint">打印 / PDF</button>
+  <button class="eb-btn" type="button" id="ebReset">还原默认</button>
+  <span class="eb-sep"></span>
+  <button class="eb-btn eb-done" type="button" id="ebDone">完成</button>
+  <input type="file" id="jsonInput" accept="application/json,.json" hidden>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="assets/js/seed.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
